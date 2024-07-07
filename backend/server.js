@@ -2,11 +2,14 @@ require('dotenv').config()
 const express =require('express')
 const workoutRoutes = require('./routes/workout')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 //express app 
 const app = express()
 
-
+app.use(cors({
+    origin:"http://localhost:5173"
+}))
 app.use(express.json());
 //middleware
 app.use((req,res,next)=>{
